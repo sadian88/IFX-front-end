@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+  <span>
+    <a routerLink="" mat-button>
+      <mat-icon>account_box</mat-icon> IFXEntities
+    </a>
+  </span>
+
+  <app-autorizado [rol]="'admin'">
+    <ng-container autorizado>
+      <div>
+        <a mat-button routerLink="empleados">Empleados</a>
+      </div>
+      <div>
+        <a mat-button routerLink="entidades">Entidades</a>
+      </div>
+      <div>
+        <a mat-button routerLink="entidades">Listado Entidades</a>
+      </div>
+      <div>
+        <a mat-button routerLink="entidades/crear">Crear Entidades</a>
+      </div>
+
+      <div>
+        <a mat-button routerLink="usuarios">Usuarios</a>
+      </div>
+    </ng-container>
+  </app-autorizado>
+
+  <div class="espacio"></div>
+
+  <app-autorizado>
+    <ng-container autorizado>
+      <span>Hola, {{seguridadService.obtenerCampoJWT('email')}}</span>
+      <a mat-button (click)="seguridadService.logout()">Logout</a>
+    </ng-container>
+    <ng-container noAutorizado>
+      <a mat-button routerLink="login">Login</a>
+      <a mat-button routerLink="registro">Registro</a>
+    </ng-container>
+  </app-autorizado>  
+
+</mat-toolbar>

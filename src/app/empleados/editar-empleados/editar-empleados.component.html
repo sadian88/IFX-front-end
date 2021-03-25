@@ -1,0 +1,8 @@
+<h2>Editar Empleado</h2>
+
+<app-formulario-empleado *ngIf="modelo"
+[modelo]="modelo"
+[errores]="errores"
+(onSubmit)="guardarCambios($event)"></app-formulario-empleado>
+
+<mat-spinner *ngIf="!modelo"></mat-spinner>
